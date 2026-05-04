@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">AplicacionUTN2026_001</string>
+    <string name="title_pizza_manager">🍕 Pizza Manager</string>
+    <string name="hint_id_pizza">ID de la Pizza</string>
+    <string name="hint_name_pizza">Nombre de la Pizza</string>
+    <string name="hint_origin_pizza">Origen (ej. Italia)</string>
+    <string name="btn_create">Crear</string>
+    <string name="btn_read">Leer</string>
+    <string name="btn_update">Actualizar</string>
+    <string name="btn_delete">Borrar</string>
+</resources>
