@@ -22,7 +22,15 @@
             android:textColor="#2D3436"
             android:textSize="28sp"
             android:textStyle="bold"
-            android:layout_marginBottom="24dp"/>
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/loadingIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp" />
 
         <!-- SECCIÓN MAESTRO -->
         <com.google.android.material.card.MaterialCardView

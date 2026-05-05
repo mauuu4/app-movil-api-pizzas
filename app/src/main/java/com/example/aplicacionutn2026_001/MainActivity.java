@@ -15,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txtId, txtName, txtOrigin, txtIngQuantity;
     AutoCompleteTextView spinnerIngredients;
     ChipGroup chipGroupIngredients;
+    LinearProgressIndicator loadingIndicator;
     List<Ingredient> tempIngredients = new ArrayList<>();
     List<Ingredient> masterIngredients = new ArrayList<>();
     Ingredient selectedIngredient = null;
@@ -49,11 +51,19 @@ public class MainActivity extends AppCompatActivity {
         spinnerIngredients = findViewById(R.id.spinnerIngredients);
         txtIngQuantity = findViewById(R.id.txtIngQuantity);
         chipGroupIngredients = findViewById(R.id.chipGroupIngredients);
+        loadingIndicator = findViewById(R.id.loadingIndicator);
 
         loadMasterIngredients();
     }
 
+    private void showLoading(boolean show) {
+        runOnUiThread(() -> {
+            loadingIndicator.setVisibility(show ? View.VISIBLE : View.GONE);
+        });
+    }
+
     private void loadMasterIngredients() {
+        showLoading(true);
         new Thread(() -> {
             try {
                 List<Ingredient> ingredients = ApiClient.getIngredients();
@@ -63,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             } catch (Exception e) {
                 runOnUiThread(() -> Toast.makeText(this, "Error al cargar catálogo de ingredientes", Toast.LENGTH_SHORT).show());
+            } finally {
+                showLoading(false);
             }
         }).start();
     }
@@ -163,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
             sanitizedIngredients.add(new Ingredient(temp.ing_id, temp.ing_quantity));
         }
 
+        showLoading(true);
         new Thread(() -> {
             try {
                 Pizza pizza = new Pizza();
@@ -184,6 +197,8 @@ public class MainActivity extends AppCompatActivity {
                     String errorMsg = e.getMessage() != null ? e.getMessage() : "Error de red";
                     Toast.makeText(this, "No se pudo crear: " + errorMsg, Toast.LENGTH_LONG).show();
                 });
+            } finally {
+                showLoading(false);
             }
         }).start();
     }
@@ -193,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
         if (idStr.isEmpty()) return;
         
         int id = Integer.parseInt(idStr);
+        showLoading(true);
         new Thread(() -> {
             try {
                 Pizza pizza = ApiClient.getPizza(id);
@@ -220,6 +236,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             } catch (Exception e) {
                 runOnUiThread(() -> Toast.makeText(this, "Error al buscar: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            } finally {
+                showLoading(false);
             }
         }).start();
     }
@@ -240,6 +258,7 @@ public class MainActivity extends AppCompatActivity {
             sanitizedIngredients.add(new Ingredient(temp.ing_id, temp.ing_quantity));
         }
 
+        showLoading(true);
         new Thread(() -> {
             try {
                 Pizza pizza = new Pizza();
@@ -254,6 +273,8 @@ public class MainActivity extends AppCompatActivity {
                     String errorMsg = e.getMessage() != null ? e.getMessage() : "Error de red";
                     Toast.makeText(this, "Error al actualizar: " + errorMsg, Toast.LENGTH_LONG).show();
                 });
+            } finally {
+                showLoading(false);
             }
         }).start();
     }
@@ -263,6 +284,7 @@ public class MainActivity extends AppCompatActivity {
         if (idStr.isEmpty()) return;
         
         int id = Integer.parseInt(idStr);
+        showLoading(true);
         new Thread(() -> {
             try {
                 ApiClient.deletePizza(id);
@@ -272,6 +294,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             } catch (Exception e) {
                 runOnUiThread(() -> Toast.makeText(this, "Error al eliminar", Toast.LENGTH_SHORT).show());
+            } finally {
+                showLoading(false);
             }
         }).start();
     }
