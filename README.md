@@ -1,4 +1,4 @@
-# App Movil API Pizzas
+<img width="720" height="1600" alt="actualizar1" src="https://github.com/user-attachments/assets/7ca970ed-e81c-4514-b849-1917c590186f" /># App Movil API Pizzas
 
 Aplicacion Android para gestionar pizzas con estructura maestro-detalle.
 La app consume una API REST publica propia para operaciones CRUD de pizzas y consulta de ingredientes.
@@ -38,7 +38,9 @@ La app consume una API REST publica propia para operaciones CRUD de pizzas y con
 ```
 
 - Respuesta esperada: pizza creada con `piz_id`.
-![Crear pizza](docs/capturas/crear-pizza.png)
+<img width="720" height="1600" alt="crear1" src="https://github.com/user-attachments/assets/70a35de6-48cd-4eda-a006-c7eef2910df7" />
+<img width="720" height="1600" alt="crear2" src="https://github.com/user-attachments/assets/4b1a858f-9aff-4c03-950b-3e9d1f57474b" />
+<img width="720" height="1600" alt="crear3" src="https://github.com/user-attachments/assets/7b652607-9351-49aa-af67-9d4fac3720a2" />
 
 ### 2) Leer pizza por ID
 
@@ -46,7 +48,8 @@ La app consume una API REST publica propia para operaciones CRUD de pizzas y con
 - Endpoint: `GET /pizzas/{id}`
 - Que envia la app: ID desde el campo `txtId`.
 - Respuesta esperada: datos de la pizza + detalle de ingredientes.
-![Leer pizza](docs/capturas/leer-pizza.png)
+<img width="720" height="1600" alt="leer" src="https://github.com/user-attachments/assets/694c5dd0-a17f-4533-a33e-22748bac66ad" />
+
 
 ### 3) Actualizar pizza
 
@@ -67,7 +70,10 @@ La app consume una API REST publica propia para operaciones CRUD de pizzas y con
 ```
 
 - Respuesta esperada: pizza actualizada.
-![Actualizar pizza](docs/capturas/actualizar-pizza.png)
+<img width="720" height="1600" alt="actualizar1" src="https://github.com/user-attachments/assets/da42a34d-ad43-4db4-a93c-7b7fe4ff899d" />
+<img width="720" height="1600" alt="actualizar2" src="https://github.com/user-attachments/assets/83220c03-11ef-4465-8c1a-9f94f0cfba77" />
+
+
 
 ### 4) Eliminar pizza
 
@@ -75,14 +81,16 @@ La app consume una API REST publica propia para operaciones CRUD de pizzas y con
 - Endpoint: `DELETE /pizzas/{id}`
 - Que envia la app: ID de la pizza a eliminar.
 - Respuesta esperada: eliminacion correcta (sin contenido).
-![Eliminar pizza](docs/capturas/eliminar-pizza.png)
+<img width="720" height="1600" alt="eliminar" src="https://github.com/user-attachments/assets/37f2afb4-a5ce-48c1-8d2a-1ce6ff631dcf" />
+
 
 ### 5) Carga inicial de ingredientes
 
 - Momento: al abrir la app.
 - Endpoint: `GET /ingredients`
 - Uso en UI: llena el selector de ingredientes para agregar al detalle.
-![Catalogo de ingredientes](docs/capturas/catalogo-ingredientes.png)
+- <img width="720" height="1600" alt="carga de datos" src="https://github.com/user-attachments/assets/719e0f29-9982-443f-8a6c-101545f9ace9" />
+
 
 ## Evidencia actual
 
