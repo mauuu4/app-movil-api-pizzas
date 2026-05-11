@@ -1,4 +1,4 @@
-<img width="720" height="1600" alt="actualizar1" src="https://github.com/user-attachments/assets/7ca970ed-e81c-4514-b849-1917c590186f" /># App Movil API Pizzas
+# App Movil API Pizzas
 
 Aplicacion Android para gestionar pizzas con estructura maestro-detalle.
 La app consume una API REST publica propia para operaciones CRUD de pizzas y consulta de ingredientes.
